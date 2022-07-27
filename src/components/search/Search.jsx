@@ -31,12 +31,13 @@ export default function Search({ typeSearch, listsData }) {
 
         axios.get(`${base_url}search/${typeSearch}?api_key=${key}&language=en-US&page=1&include_adult=false&query=${valueSearch}`)
             .then(function (response) {
-                console.log(response.data)
+                if (response.data.total_results == 0) {
+                    alert('Not Found!');
+                }
                 listsData(response.data)
             })
             .catch(function (error) {
                 console.log(error)
-
             })
 
         setValueSearch('');

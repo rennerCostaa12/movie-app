@@ -4,6 +4,12 @@ import { CardMovie } from "../../styles/TrendingRoute";
 import { Link } from "react-router-dom";
 
 export default function MoviesAndSeries({ datas }) {
+
+    const datesRelease = new Date(datas.release_date);
+    const firstAirDate = new Date(datas.first_air_date);
+
+    const isMovie = "release_date" in datas;
+
     return (
         <CardMovie>
             <ButtonFavorites
@@ -11,32 +17,33 @@ export default function MoviesAndSeries({ datas }) {
                 sizeIcon={30}
                 colorIcon="#f1f1f1"
             />
-            <Link to={`/${datas.media_type == "movie" ? 'details_movie' : 'details_tv'}/${datas.id}`}>
+            <Link to={`/${isMovie ? 'details_movie' : 'details_tv'}/${datas.id}`}>
                 <img src={`https://image.tmdb.org/t/p/w500/${datas.poster_path}`} alt={datas.title} />
                 <div>
                     <div>
                         {
-                            datas.media_type == "movie" ?
+                            isMovie ?
                                 <>
                                     <FilmStrip size={32} />
-                                    {datas.media_type}
+                                    movie
                                 </> :
                                 <>
                                     <Television size={32} />
-                                    {datas.media_type}
+                                    tv
                                 </>
                         }
                     </div>
                     <div>
                         {
-                            datas.media_type == "movie" ?
-                                datas.release_date.substring(0, 4) :
-                                datas.first_air_date.substring(0, 4)
+                            isMovie ?
+                                datesRelease.getFullYear()
+                                :
+                                firstAirDate.getFullYear()
                         }
                     </div>
                 </div>
 
-                <h3>{datas.media_type == "movie" ? datas.title : datas.original_name}</h3>
+                <h3>{isMovie ? datas.original_title : datas.original_name}</h3>
             </Link>
         </CardMovie>
     )

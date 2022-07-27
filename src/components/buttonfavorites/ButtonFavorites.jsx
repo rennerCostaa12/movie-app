@@ -15,7 +15,7 @@ export default function ButtonFavorites({ datas, titleButton, sizeIcon, colorIco
         setFavorites(favorites.filter((data) => data.id !== datas.id));
     }
 
-    const isFavorite = favorites.some((data) => data.id === datas.id)
+    const isFavorite = favorites.some((data) => data.id == datas.id)
 
     return (
         <div>

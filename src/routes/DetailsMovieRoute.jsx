@@ -4,6 +4,8 @@ import ButtonFavorites from "../components/buttonfavorites/ButtonFavorites";
 import ModalComponent from "../components/modal/ModalComponent";
 import CircularStatic from "../components/circularprogress/CircularProgress";
 import ProfileNotfound from '../assets/profile_notfound.png';
+import { useContext } from "react";
+import { FavoriteContext } from "../contexts/favorites";
 import { Ticket, Money, ClockClockwise, MonitorPlay } from "phosphor-react";
 
 import {
@@ -17,6 +19,7 @@ import {
 //STYLED COMPONENTS
 import {
     ContainerDatas,
+    ContentBannerMovie,
     ContentDatas,
     PosterContent,
     DescriptionDetails,
@@ -42,8 +45,10 @@ import "swiper/css/pagination";
 export default function DetailsMovieRoute() {
     const { id_data } = useParams();
 
-    const { creditsDetails, loading } = getCreditsData('movies', id_data);
+    const { favorites } = useContext(FavoriteContext);
+
     const { datasDetails } = getDataDetailsApi('MoviesDetails', id_data);
+    const { creditsDetails, loading } = getCreditsData('movies', id_data);
     const { datasImages } = getImagesMovies("Movies", id_data);
     const { datasSimilar } = MoviesSimilar("Movies", id_data);
     const { datasTrailer } = getTrailer('Movies', id_data);
@@ -62,15 +67,24 @@ export default function DetailsMovieRoute() {
 
     handleMoveScroll()
 
+    const isFavorite = favorites.some((data) => data.id == id_data)
+
+
     return (
         <ContainerDatas>
-            <Container maxWidth="lg">
+            <ContentBannerMovie
+                style={{
+                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${datasDetails.backdrop_path}")`
+                }}
+
+            />
+            <Container style={{ position: "relative" }} maxWidth="lg">
                 <ContentDatas>
                     <div >
                         <PosterContent>
                             <img src={`https://image.tmdb.org/t/p/w300/${datasDetails.poster_path}`} alt={datasDetails.original_title} />
                         </PosterContent>
-                    </div>
+                    </div >
 
                     <DescriptionDetails>
                         <VoteContent>
@@ -83,7 +97,7 @@ export default function DetailsMovieRoute() {
                         <ContentButtonsDescriptions>
                             <ButtonFavorites
                                 datas={datasDetails}
-                                titleButton="Add Favorites"
+                                titleButton={`${isFavorite ? "Remove" : "Add"} Favorites`}
                                 sizeIcon={30}
                             />
 
@@ -93,7 +107,9 @@ export default function DetailsMovieRoute() {
                                         <MonitorPlay size={32} />
                                     </>
                                 }
-                                idVideo={datasTrailer.results && datasTrailer.results[0].key}
+                                idVideo={
+                                    datasTrailer.results && datasTrailer.results.length != 0 ?
+                                        datasTrailer.results && datasTrailer.results[0].key : null} //if there are no videos
                             />
                         </ContentButtonsDescriptions>
 
@@ -108,7 +124,7 @@ export default function DetailsMovieRoute() {
                             })}
                         </ContentGenres>
                     </DescriptionDetails>
-                </ContentDatas>
+                </ContentDatas >
                 <ContentDetailsMovie>
                     <div>
                         <Money size={40} />
@@ -169,7 +185,7 @@ export default function DetailsMovieRoute() {
                     </ContentActors>
 
                     <ContentMoviesSimilars style={{ color: "#f1f1ff" }}>
-                        <h1>Movies Similars</h1>
+                        <h1>Similars</h1>
                         <div>
                             <Swiper
                                 style={{
@@ -181,11 +197,8 @@ export default function DetailsMovieRoute() {
                                 slidesPerGroup={4}
                                 loop={true}
                                 loopFillGroupWithBlank={true}
-                                pagination={{
-                                    clickable: true,
-                                }}
                                 navigation={true}
-                                modules={[Pagination, Navigation]}
+                                modules={[Navigation]}
                                 className="mySwiper"
                             >
                                 {datasSimilar.results && datasSimilar.results.map((value, key) => {
@@ -202,7 +215,7 @@ export default function DetailsMovieRoute() {
                         </div>
                     </ContentMoviesSimilars>
                 </ContainerImagesAndCasts>
-            </Container>
+            </Container >
         </ContainerDatas >
     )
 }

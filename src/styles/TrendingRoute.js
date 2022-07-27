@@ -27,20 +27,23 @@ export const ContentSliderMovies = styled.div`
         height: 450px;
         filter: brightness(40%);
     }
+`
+
+export const ContentDescriptionSlider = styled.div`
+    position: absolute;
+    left: 20px;
+    bottom: 30px;
 
     h1{
+        width: 50%;
         margin-left: 0;
-        position: absolute;
-        left: 20px;
-        bottom: 160px;
     }
 
     p{
-        position: absolute;
         width: 50%;
-        left: 20px;
-        bottom: 35px;
         line-height: 25px;
+        font-weight: 300;
+        font-style: italic;
     }
 `
 

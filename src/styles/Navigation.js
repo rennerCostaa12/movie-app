@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
+    z-index: 100;
     border-radius: 15px;
     position: fixed;
     margin: 1rem;
@@ -19,9 +20,15 @@ export const Container = styled.nav`
         transform: scale(0.8);
         transition: all ease 0.3s;
     }
+
     li:hover{
         transform: scale(1);
+        a{
+            transition: all ease 0.3s;
+            color: #DC143C;
+        }
     }
+    
     li a {
         text-decoration: none;
         color: #f1f1f1;

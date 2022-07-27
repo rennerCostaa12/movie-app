@@ -4,6 +4,8 @@ import ButtonFavorites from "../components/buttonfavorites/ButtonFavorites";
 import ModalComponent from "../components/modal/ModalComponent";
 import CircularStatic from "../components/circularprogress/CircularProgress"
 import ProfileNotfound from '../assets/profile_notfound.png'
+import { useContext } from "react";
+import { FavoriteContext } from "../contexts/favorites";
 import { UsersThree, FilmSlate, TelevisionSimple, MonitorPlay } from "phosphor-react"
 
 import {
@@ -43,6 +45,8 @@ export default function DetailsTvRoute() {
 
     const { id_data } = useParams();
 
+    const { favorites } = useContext(FavoriteContext)
+
     const { creditsDetails } = getCreditsData('tv', id_data);
     const { datasDetails } = getDataDetailsApi('TvDetails', id_data);
     const { datasImages } = getImagesMovies('Tv', id_data);
@@ -54,6 +58,10 @@ export default function DetailsTvRoute() {
     function moveScroll() {
         window.scroll(0, 0);
     }
+
+    moveScroll()
+
+    const isFavorites = favorites.some((data) => data.id == id_data);
 
     return (
         <ContainerDatas>
@@ -76,7 +84,7 @@ export default function DetailsTvRoute() {
                         <ContentButtonsDescriptions>
                             <ButtonFavorites
                                 datas={datasDetails}
-                                titleButton="Add Favorite"
+                                titleButton={`${isFavorites ? 'Remove' : 'Add'} Favorite`}
                                 sizeIcon={30}
                             />
 

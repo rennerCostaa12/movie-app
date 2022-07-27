@@ -4,6 +4,19 @@ export const ContainerDatas = styled.section`
     margin-left: 6rem;
 `
 
+export const ContentBannerMovie = styled.div`
+    z-index: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    filter: brightness(40%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+`
+
 export const ContentDatas = styled.div`
     display: flex;
 `
@@ -36,6 +49,8 @@ export const DescriptionDetails = styled.div`
     }
 
     p{
+        font-style: italic;
+        font-weight: 300;
         font-size: 17px;
         line-height: 30px;
     }

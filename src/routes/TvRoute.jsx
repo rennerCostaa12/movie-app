@@ -3,8 +3,6 @@ import { ContainerTrending, ContentTrending } from "../styles/TrendingRoute";
 import Tv from "../components/tv/Tv";
 import PaginationItems from "../components/pagination/PaginationItems";
 import { useState } from "react";
-import { ValueSearchContext } from "../contexts/search";
-import { useContext } from "react"
 import Search from "../components/search/Search";
 
 export default function TvRoute() {
@@ -17,9 +15,7 @@ export default function TvRoute() {
         <ContainerTrending>
             <Search typeSearch="tv" listsData={setListTvSearch} />
 
-
             {ListTvSearch.results && ListTvSearch.results.length > 0 ?
-
                 <ContentTrending>
                     {ListTvSearch.results && ListTvSearch.results.map((value) => {
                         return (
