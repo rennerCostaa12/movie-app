@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.nav`
+export const Container = styled.div`
+    @media(max-width: 920px){
+        display: flex;
+        justify-content: center;
+    }
+`
+
+export const ContentNav = styled.nav`
     z-index: 100;
     border-radius: 15px;
     position: fixed;
@@ -32,5 +39,12 @@ export const Container = styled.nav`
     li a {
         text-decoration: none;
         color: #f1f1f1;
+    }
+
+    @media(max-width: 920px){
+        width: 500px;
+        min-width: 270px;
+        position: static;
+        flex-direction: row;
     }
 `

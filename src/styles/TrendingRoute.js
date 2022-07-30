@@ -8,12 +8,23 @@ export const ContainerTrending = styled.section`
         font-size: 40px;
         margin: 1rem;
     }
+
+    @media(max-width: 920px){
+        margin-left: 0;
+        > h1{
+            text-align: center;
+        }
+    }
 `
 
 export const ContentTrending = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+
+    @media(max-width: 920px){
+        justify-content: center;
+    }
 `
 
 export const ContentSliderMovies = styled.div`
@@ -26,6 +37,15 @@ export const ContentSliderMovies = styled.div`
         width: 100%;
         height: 450px;
         filter: brightness(40%);
+    }
+
+    @media(max-width: 540px){
+        width: 93%;
+        height: 300px;
+
+        img{
+            height: 300px;
+        }
     }
 `
 
@@ -44,6 +64,21 @@ export const ContentDescriptionSlider = styled.div`
         line-height: 25px;
         font-weight: 300;
         font-style: italic;
+    }
+
+    @media(max-width: 540px){
+        bottom: 0%;
+
+        h1{
+            font-size: 18px;
+            margin: 0;
+        }
+
+        p{
+            font-size: 13px;
+            width: 70%;
+            line-height: 18px;
+        }
     }
 `
 

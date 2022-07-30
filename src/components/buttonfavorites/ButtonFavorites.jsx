@@ -28,7 +28,9 @@ export default function ButtonFavorites({ datas, titleButton, sizeIcon, colorIco
                     :
                     <BookmarkSimple size={sizeIcon} color={colorIcon} weight="bold" />
                 }
-                {titleButton}
+                <span>
+                    {titleButton}
+                </span>
             </Button>
         </div>
     )
