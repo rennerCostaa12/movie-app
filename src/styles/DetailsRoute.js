@@ -2,6 +2,16 @@ import styled from "styled-components";
 
 export const ContainerDatas = styled.section`
     margin-left: 6rem;
+
+    @media(max-width: 920px){
+        margin-left: 0;
+    } 
+
+    @media(max-width: 425px){
+        >div{
+            padding: 0;
+        }
+    }
 `
 
 export const ContentBannerMovie = styled.div`
@@ -19,6 +29,10 @@ export const ContentBannerMovie = styled.div`
 
 export const ContentDatas = styled.div`
     display: flex;
+    background-color: #00000086;
+    @media(max-width: 768px){
+        flex-direction: column-reverse;
+    }
 `
 
 export const PosterContent = styled.div`
@@ -26,12 +40,19 @@ export const PosterContent = styled.div`
         width: 300px;
         height: 100%;
     }
+    @media(max-width: 768px){
+        display: flex;
+        justify-content: center;
+        img{
+            width: 230px;
+            border-radius: 5px;
+        }
+    }
 `
 
 export const DescriptionDetails = styled.div`
     padding: 1.5rem;
     color: #f1f1f1;
-    background-color: #00000086;
 
     h1{
         font-size: 35px;
@@ -74,6 +95,44 @@ export const DescriptionDetails = styled.div`
         background-color: #F7C008;
         transform: scale(1);
     }
+
+    @media(max-width: 768px){
+        padding: 1rem 1.5rem;
+    }
+
+    @media(max-width: 600px){
+        h1{
+            font-size: 28px;
+        }
+
+        h3{
+            font-size: 15px;
+        }
+
+        p{
+            font-size: 13px;
+            line-height: 19px;
+        }
+
+        button{
+            font-size: 12px;
+        }
+    }
+
+    @media(max-width: 425px){
+        h1{
+            font-size: 22px;
+        }
+
+        h3{
+            font-size: 12px;
+        }
+
+        p{
+            font-size: 11px;
+            line-height: 19px;
+        }
+    }
 `
 
 export const ContentGenres = styled.div`
@@ -86,11 +145,27 @@ export const ContentGenres = styled.div`
         font-weight: bold;
        }
 
+    @media(max-width: 600px){
+        span{
+            font-size: 12px;
+        }
+    }
+
 `
 
 export const ContentButtonsDescriptions = styled.div`
+    width: 100%;
     display: flex;
     gap: 20px;
+
+    @media(max-width: 425px){
+        span{
+            display: none;
+        }
+        svg{
+            width: 23px;
+        }
+    }
 `
 
 export const VoteContent = styled.div`
@@ -118,6 +193,21 @@ export const ContentDetailsMovie = styled.section`
         gap: 5px;
         font-size: 20px;
         font-weight: bold;
+    }
+
+    @media(max-width: 600px){
+        gap: 10px;
+        div{
+            width: 100%;
+            font-size: 10px;
+        }
+    }
+
+    @media(max-width: 375px){
+        text-align: center;
+        svg{
+            display: none;
+        }
     }
 `
 
@@ -199,7 +289,19 @@ export const ContentMoviesSimilars = styled.section`
                 filter: brightness(30%);    
             }
         }
-      
+    }
+
+    @media(max-width: 475px){
+        div div div div{
+            a h3{
+                width: 80%;
+                font-size: 17px;
+            }
+
+            img{
+                width: 80%;
+            }
+        }
     }
 
 `

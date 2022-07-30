@@ -5,6 +5,15 @@ export const ContentSearchField = styled.form`
     align-items: center;
     margin-top: 1rem;
     color: #f1f1f1;
+
+    @media(max-width: 920px){
+        justify-content: center;
+    } 
+
+    @media(max-width: 375px){
+        gap: 10px;
+        flex-direction: column;
+    }
 `
 
 export const SearchField = styled.input`

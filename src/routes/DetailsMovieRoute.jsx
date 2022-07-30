@@ -200,6 +200,32 @@ export default function DetailsMovieRoute() {
                                 navigation={true}
                                 modules={[Navigation]}
                                 className="mySwiper"
+                                breakpoints={{
+                                    320: {
+                                        width: 320,
+                                        spaceBetween: 0,
+                                        slidesPerView: 1,
+                                        slidesPerGroup: 1
+                                    },
+                                    768: {
+                                        width: 768,
+                                        spaceBetween: 0,
+                                        slidesPerView: 2,
+                                        slidesPerGroup: 1
+                                    },
+                                    920: {
+                                        width: 921,
+                                        spaceBetween: 0,
+                                        slidesPerView: 3,
+                                        slidesPerGroup: 2
+                                    },
+                                    1200: {
+                                        width: 1200,
+                                        spaceBetween: 30,
+                                        slidesPerView: 4,
+                                        slidesPerGroup: 3
+                                    }
+                                }}
                             >
                                 {datasSimilar.results && datasSimilar.results.map((value, key) => {
                                     return (
