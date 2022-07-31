@@ -1,13 +1,12 @@
 import { SearchField, ContentSearchField } from '../../styles/Search';
 import { MagnifyingGlass } from 'phosphor-react';
-import { useContext } from 'react';
-import { ValueSearchContext } from '../../contexts/search';
-import axios from 'axios';
-import { base_url, key } from '../../config/configApi';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-export default function Search({ typeSearch, listsData }) {
+export default function Search({ pathRequisition }) {
+    let navigte = useNavigate();
 
     const theme = createTheme({
         palette: {
@@ -17,38 +16,25 @@ export default function Search({ typeSearch, listsData }) {
         }
     })
 
-    const {
-        setValueSearch,
-        valueSearch,
-    } = useContext(ValueSearchContext);
+    const [query, setQuery] = useState('');
 
     function handleChangeValueSearch(event) {
-        setValueSearch(event.target.value)
+        setQuery(event.target.value)
     }
 
     function handleOnSubmit(e) {
         e.preventDefault();
-
-        axios.get(`${base_url}search/${typeSearch}?api_key=${key}&language=en-US&page=1&include_adult=false&query=${valueSearch}`)
-            .then(function (response) {
-                if (response.data.total_results == 0) {
-                    alert('Not Found!');
-                }
-                listsData(response.data)
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
-
-        setValueSearch('');
+        navigte(`/${pathRequisition}/${query}`)
+        setQuery('');
     }
 
     return (
         <ContentSearchField onSubmit={handleOnSubmit}>
             <SearchField
                 placeholder="Search for movies or TV series"
-                value={valueSearch}
-                onChange={handleChangeValueSearch} />
+                value={query}
+                onChange={handleChangeValueSearch}
+            />
 
             <ThemeProvider theme={theme}>
                 <Button variant='contained' color='primary' size='small' type='submit'>

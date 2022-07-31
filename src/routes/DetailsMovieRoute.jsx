@@ -47,11 +47,11 @@ export default function DetailsMovieRoute() {
 
     const { favorites } = useContext(FavoriteContext);
 
-    const { datasDetails } = getDataDetailsApi('MoviesDetails', id_data);
-    const { creditsDetails, loading } = getCreditsData('movies', id_data);
-    const { datasImages } = getImagesMovies("Movies", id_data);
-    const { datasSimilar } = MoviesSimilar("Movies", id_data);
-    const { datasTrailer } = getTrailer('Movies', id_data);
+    const { datasDetails, loading } = getDataDetailsApi('movie', id_data);
+    const { creditsDetails } = getCreditsData('movie', id_data);
+    const { datasImages } = getImagesMovies('movie', id_data);
+    const { datasSimilar } = MoviesSimilar('movie', id_data);
+    const { datasTrailer } = getTrailer('movie', id_data);
 
     const dollarConversion = Intl.NumberFormat('en-US');
 
@@ -79,12 +79,13 @@ export default function DetailsMovieRoute() {
 
             />
             <Container style={{ position: "relative" }} maxWidth="lg">
+                {loading ? <h1 style={{ color: "#f1f1f1" }}>Aguarde</h1> : ""}
                 <ContentDatas>
-                    <div >
+                    <div>
                         <PosterContent>
                             <img src={`https://image.tmdb.org/t/p/w300/${datasDetails.poster_path}`} alt={datasDetails.original_title} />
                         </PosterContent>
-                    </div >
+                    </div>
 
                     <DescriptionDetails>
                         <VoteContent>
@@ -168,7 +169,6 @@ export default function DetailsMovieRoute() {
 
                     <h1>Casts</h1>
                     <ContentActors>
-                        {loading && <p>Carregando...</p>}
                         {casts && casts.slice(0, 10).map((value, key) => {
                             return (
                                 <CardActor key={key}>
