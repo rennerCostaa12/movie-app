@@ -15,6 +15,12 @@ export const ContainerTrending = styled.section`
             text-align: center;
         }
     }
+
+    @media(max-width: 425px){
+        > h1{
+            font-size: 25px;;
+        }
+    }
 `
 
 export const ContentTrending = styled.div`
@@ -67,7 +73,7 @@ export const ContentDescriptionSlider = styled.div`
     }
 
     @media(max-width: 540px){
-        bottom: 0%;
+        bottom: 5%;
 
         h1{
             font-size: 18px;

@@ -2,7 +2,7 @@ import Pagination from "@mui/material/Pagination"
 import { ContentPagination } from "../../styles/Pagination";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-export default function PaginationItems({ setPages }) {
+export default function PaginationItems({ setPages, totalPages }) {
 
     const theme = createTheme({
         palette: {
@@ -24,7 +24,7 @@ export default function PaginationItems({ setPages }) {
                     hidePrevButton={true}
                     shape="rounded"
                     color="primary"
-                    count={99}
+                    count={totalPages}
                     onChange={(e) => handlePageChange(e.target.textContent)} />
             </ContentPagination>
         </ThemeProvider>

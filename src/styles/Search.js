@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContentSearchField = styled.form`
     display: flex;
     align-items: center;
-    margin-top: 1rem;
+    margin: 1.5rem 0;
     color: #f1f1f1;
 
     @media(max-width: 920px){

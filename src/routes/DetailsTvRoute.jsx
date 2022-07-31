@@ -47,11 +47,11 @@ export default function DetailsTvRoute() {
 
     const { favorites } = useContext(FavoriteContext)
 
+    const { datasDetails, loading } = getDataDetailsApi('tv', id_data);
     const { creditsDetails } = getCreditsData('tv', id_data);
-    const { datasDetails } = getDataDetailsApi('TvDetails', id_data);
-    const { datasImages } = getImagesMovies('Tv', id_data);
-    const { datasSimilar } = MoviesSimilar('Tv', id_data);
-    const { datasTrailer } = getTrailer('Tv', id_data);
+    const { datasImages } = getImagesMovies('tv', id_data);
+    const { datasSimilar } = MoviesSimilar('tv', id_data);
+    const { datasTrailer } = getTrailer('tv', id_data);
 
     const dollarConversion = Intl.NumberFormat('en-US');
 
@@ -66,6 +66,7 @@ export default function DetailsTvRoute() {
     return (
         <ContainerDatas>
             <Container maxWidth="lg">
+                {loading ? <h2 style={{ color: "#f1f1f1" }}>Loading</h2> : ""}
                 <ContentDatas>
                     <div >
                         <PosterContent>
@@ -94,7 +95,9 @@ export default function DetailsTvRoute() {
                                         <MonitorPlay size={32} />
                                     </>
                                 }
-                                idVideo={datasTrailer.results && datasTrailer.results[0].key}
+                                idVideo={
+                                    datasTrailer.results && datasTrailer.results.length != 0 ?
+                                        datasTrailer.results && datasTrailer.results[0].key : null} //if there are no videos
                             />
                         </ContentButtonsDescriptions>
 
