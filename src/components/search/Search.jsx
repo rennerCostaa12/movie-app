@@ -31,7 +31,7 @@ export default function Search({ pathRequisition }) {
     return (
         <ContentSearchField onSubmit={handleOnSubmit}>
             <SearchField
-                placeholder="Search for movies or TV series"
+                placeholder="Pesquisar"
                 value={query}
                 onChange={handleChangeValueSearch}
             />

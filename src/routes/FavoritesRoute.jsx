@@ -11,7 +11,7 @@ function NotFavorites() {
     }
 
     return (
-        <h1 style={styleNotFavorites}>NOT FAVORITES</h1>
+        <h1 style={styleNotFavorites}>Nenhum Favorito</h1>
     )
 }
 
@@ -20,7 +20,7 @@ export default function FavoritesRoute() {
 
     return (
         <ContainerTrending>
-            <h1>Favorites</h1>
+            <h1>Favoritos</h1>
 
             {favorites.length == 0 ? <NotFavorites /> :
                 <>

@@ -31,7 +31,7 @@ export default function ModalComponent({ icon, idVideo }) {
     }
     return (
         <div>
-            <Button style={styleBtn} onClick={handleOpen}> {icon} <span>Watch Trailer</span> </Button>
+            <Button style={styleBtn} onClick={handleOpen}> {icon} <span>Assistir Trailer</span> </Button>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"

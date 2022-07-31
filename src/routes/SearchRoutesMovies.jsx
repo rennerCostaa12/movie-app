@@ -16,9 +16,9 @@ export default function SearchRoutesMovies() {
     return (
         <ContainerTrending> 
             <Search pathRequisition="search_movies"/>
-            {loading ? <h2>Loading</h2> : ''}
+            {loading ? <h2>Carregando</h2> : ''}
             {dataSearch && dataSearch.total_results == 0 ? 
-            <h2 style={{textAlign: "center"}}> Movie Not Found </h2> : ''}
+            <h2 style={{textAlign: "center"}}> Filme Não Encontrado </h2> : ''}
 
             <ContentTrending>
                 {dataSearch.results && dataSearch.results.map((value) => {

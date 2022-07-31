@@ -12,8 +12,8 @@ export default function MoviesRoute() {
     return (
         <ContainerTrending>
             <Search pathRequisition="search_movies" />
-            <h1>Movies</h1>
-            {loading ? "Loading" : ''}
+            <h1>Filmes</h1>
+            {loading ? "Carregando" : ''}
             <ContentTrending>
                 {datas.results && datas.results.map((value) => {
                     return (

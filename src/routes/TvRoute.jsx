@@ -9,13 +9,11 @@ export default function TvRoute() {
     const [page, setPage] = useState(1);
     const { datas, loading } = getDatasApi('tv', page);
 
-    console.log(datas)
-
     return (
         <ContainerTrending>
             <Search pathRequisition="search_tv" />
             <h1>Tv</h1>
-            {loading ? "Loading" : ''}
+            {loading ? "Carregando" : ''}
             <ContentTrending>
                 {datas.results && datas.results.map((value) => {
                     return (
