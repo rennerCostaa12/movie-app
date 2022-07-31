@@ -21,7 +21,7 @@ export default function ButtonFavorites({ datas, titleButton, sizeIcon, colorIco
         <div>
             <Button
                 onClick={() => isFavorite ? handleDesfavorites() : handleFavorites()}
-                title="favorite"
+                title="favoritos"
             >
                 {isFavorite ?
                     <Bookmarks size={sizeIcon} color={colorIcon} weight="bold" />

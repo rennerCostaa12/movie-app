@@ -10,7 +10,7 @@ export function getTrendings(mediaType, Time) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`${base_url}trending/${mediaType}/${Time}?api_key=${key}`)
+        axios.get(`${base_url}trending/${mediaType}/${Time}?api_key=${key}&language=pt-BR`)
             .then(function (response) {
                 setDatasTrending(response.data);
             })
@@ -52,7 +52,7 @@ export function getDataDetailsApi(typeRequisition, id) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`${base_url}${typeRequisition}/${id}?api_key=${key}&language=en-US`)
+        axios.get(`${base_url}${typeRequisition}/${id}?api_key=${key}&language=pt-BR`)
             .then(function (response) {
                 setDatasDetails(response.data)
             })
@@ -71,7 +71,7 @@ export function getCreditsData(typeRequisition, id) {
     const [creditsDetails, setCreditsDetails] = useState([]);
 
     useEffect(() => {
-        axios.get(`${base_url}${typeRequisition}/${id}/credits?api_key=${key}&language=en-US`)
+        axios.get(`${base_url}${typeRequisition}/${id}/credits?api_key=${key}&language=pt-BR`)
             .then(function (response) {
                 setCreditsDetails(response.data);
             })
@@ -90,7 +90,7 @@ export function getImagesMovies(typeRequisition, id) {
     const [datasImages, setDatasImages] = useState([]);
 
     useEffect(() => {
-        axios.get(`${base_url}${typeRequisition}/${id}/images?api_key=${key}&language=en-US&include_image_language=en,null`)
+        axios.get(`${base_url}${typeRequisition}/${id}/images?api_key=${key}&language=pt-BR&include_image_language=en,null`)
             .then(function (response) {
                 setDatasImages(response.data);
             })
@@ -106,7 +106,7 @@ export function getTrailer(typeRequisition, id) {
     const [datasTrailer, setTrailer] = useState([]);
 
     useEffect(() => {
-        axios.get(`${base_url}${typeRequisition}/${id}/videos?api_key=${key}&language=en-US`)
+        axios.get(`${base_url}${typeRequisition}/${id}/videos?api_key=${key}&language=pt-BR`)
             .then(function (response) {
                 setTrailer(response.data);
             })
@@ -122,7 +122,7 @@ export function MoviesSimilar(typeRequisition, id) {
     const [datasSimilar, setDatasSimilar] = useState([]);
 
     useEffect(() => {
-        axios.get(`${base_url}${typeRequisition}/${id}/similar?api_key=${key}&language=en-US&page=1`)
+        axios.get(`${base_url}${typeRequisition}/${id}/similar?api_key=${key}&language=pt-BR&page=1`)
             .then(function (response) {
                 setDatasSimilar(response.data);
             })
@@ -140,7 +140,7 @@ export function getSearch(typeRequisition, query, page) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`${base_url}search/${typeRequisition}?api_key=${key}&language=en-US&page=${page}&include_adult=false&query=${query}`)
+        axios.get(`${base_url}search/${typeRequisition}?api_key=${key}&language=pt-BR&page=${page}&include_adult=false&query=${query}`)
             .then(function (response) {
                 setDatasSearch(response.data);
             })

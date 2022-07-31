@@ -11,14 +11,14 @@ export default function SearchRoutesTv() {
     let params = useParams();
     const [page, setPage] = useState(1);
 
-    const { dataSearch } = getSearch("tv", params.value_search, page);
+    const { dataSearch, loading } = getSearch("tv", params.value_search, page);
     
     return (
         <ContainerTrending>
             <Search pathRequisition="search_tv" />
-
+            {loading ? <h2>Carregando</h2> : ''}
             {dataSearch && dataSearch.total_results == 0 ?
-                <h2 style={{ textAlign: "center" }}> TV Not Found </h2> : ''}
+                <h2 style={{ textAlign: "center" }}> TV Não Encontrado </h2> : ''}
 
             <ContentTrending>
                 {dataSearch.results && dataSearch.results.map((value) => {

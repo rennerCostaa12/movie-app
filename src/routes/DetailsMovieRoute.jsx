@@ -53,7 +53,7 @@ export default function DetailsMovieRoute() {
     const { datasSimilar } = MoviesSimilar('movie', id_data);
     const { datasTrailer } = getTrailer('movie', id_data);
 
-    const dollarConversion = Intl.NumberFormat('en-US');
+    const dollarConversion = Intl.NumberFormat('pt-BR');
 
     const casts = []
 
@@ -92,13 +92,13 @@ export default function DetailsMovieRoute() {
                             <CircularStatic Notes={datasDetails.vote_average} />
                         </VoteContent>
 
-                        <h1>{datasDetails.original_title}</h1>
+                        <h1>{datasDetails.title}</h1>
                         <h3>{datasDetails.tagline}</h3>
 
                         <ContentButtonsDescriptions>
                             <ButtonFavorites
                                 datas={datasDetails}
-                                titleButton={`${isFavorite ? "Remove" : "Add"} Favorites`}
+                                titleButton={`${isFavorite ? "Remover" : "Add"} Favoritos`}
                                 sizeIcon={30}
                             />
 
@@ -116,7 +116,7 @@ export default function DetailsMovieRoute() {
 
                         <p>{datasDetails.overview}</p>
 
-                        <h4>Genres</h4>
+                        <h4>Gêneros</h4>
                         <ContentGenres>
                             {datasDetails.genres && datasDetails.genres.map((value, key) => {
                                 return (
@@ -129,21 +129,21 @@ export default function DetailsMovieRoute() {
                 <ContentDetailsMovie>
                     <div>
                         <Money size={40} />
-                        Budget: ${dollarConversion.format(datasDetails.budget)}
+                        Orçamento: R${dollarConversion.format(datasDetails.budget)}
                     </div>
                     <div>
                         <Ticket size={40} />
-                        Revenue: {dollarConversion.format(datasDetails.revenue)}
+                        Arrecadação: {dollarConversion.format(datasDetails.revenue)}
                     </div>
                     <div>
                         <ClockClockwise size={40} />
-                        Runtime: {datasDetails.runtime} Minutes
+                        Duração: {datasDetails.runtime} Minutos
                     </div>
                 </ContentDetailsMovie>
 
                 <ContainerImagesAndCasts>
                     <ContentSliderBackDrops>
-                        <h1>Gallery</h1>
+                        <h1>Galeria</h1>
                         <div>
                             <Swiper
                                 pagination={{
@@ -167,7 +167,7 @@ export default function DetailsMovieRoute() {
                         </div>
                     </ContentSliderBackDrops>
 
-                    <h1>Casts</h1>
+                    <h1>Elenco</h1>
                     <ContentActors>
                         {casts && casts.slice(0, 10).map((value, key) => {
                             return (
@@ -185,7 +185,7 @@ export default function DetailsMovieRoute() {
                     </ContentActors>
 
                     <ContentMoviesSimilars style={{ color: "#f1f1ff" }}>
-                        <h1>Similars</h1>
+                        <h1>Similares</h1>
                         <div>
                             <Swiper
                                 style={{
@@ -232,7 +232,7 @@ export default function DetailsMovieRoute() {
                                         <SwiperSlide key={key}>
                                             <Link onClick={handleMoveScroll} to={`/details_movie/${value.id}`}>
                                                 <img src={`https://image.tmdb.org/t/p/w200/${value.poster_path}`} alt="" />
-                                                <h3>{value.original_title}</h3>
+                                                <h3>{value.title}</h3>
                                             </Link>
                                         </SwiperSlide>
                                     )

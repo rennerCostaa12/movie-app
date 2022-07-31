@@ -7,7 +7,7 @@ export default function RouteNotFound() {
     return (
         <Container maxWidth="lg">
             <ContentNotFound>
-                <h1>Route Not Found</h1>
+                <h1>Rota Não Encontrada</h1>
                 <Warning size={62} />
             </ContentNotFound>
         </Container>

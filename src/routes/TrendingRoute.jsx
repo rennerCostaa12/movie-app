@@ -11,6 +11,8 @@ import "swiper/css/navigation";
 export default function TrendingRoute() {
     const { datasTrending, loading } = getTrendings('all', 'week');
 
+    console.log(datasTrending)
+
     return (
         <ContainerTrending>
 
@@ -47,7 +49,7 @@ export default function TrendingRoute() {
                 </div>
             </ContentSliderMovies>
 
-            <h1>HIGHS OF THE WEEK</h1>
+            <h1>Em altas da semana</h1>
             <ContentTrending>
                 {datasTrending.results && datasTrending.results.map((value) => {
                     return (

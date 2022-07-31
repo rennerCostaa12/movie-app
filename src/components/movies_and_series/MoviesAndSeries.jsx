@@ -25,7 +25,7 @@ export default function MoviesAndSeries({ datas }) {
                             isMovie ?
                                 <>
                                     <FilmStrip size={32} />
-                                    movie
+                                    filme
                                 </> :
                                 <>
                                     <Television size={32} />
@@ -43,7 +43,7 @@ export default function MoviesAndSeries({ datas }) {
                     </div>
                 </div>
 
-                <h3>{isMovie ? datas.original_title : datas.original_name}</h3>
+                <h3>{isMovie ? datas.title : datas.name}</h3>
             </Link>
         </CardMovie>
     )

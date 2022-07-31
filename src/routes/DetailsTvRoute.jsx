@@ -79,13 +79,13 @@ export default function DetailsTvRoute() {
                             <CircularStatic Notes={datasDetails.vote_average} />
                         </VoteContent>
 
-                        <h1>{datasDetails.original_name}</h1>
+                        <h1>{datasDetails.name}</h1>
                         <h3>{datasDetails.tagline}</h3>
 
                         <ContentButtonsDescriptions>
                             <ButtonFavorites
                                 datas={datasDetails}
-                                titleButton={`${isFavorites ? 'Remove' : 'Add'} Favorite`}
+                                titleButton={`${isFavorites ? 'Remover' : 'Add'} Favoritos`}
                                 sizeIcon={30}
                             />
 
@@ -103,34 +103,36 @@ export default function DetailsTvRoute() {
 
                         <p>{datasDetails.overview}</p>
 
-                        <h4>Genres</h4>
+                        <h4>Gêneros</h4>
                         <div>
-                            {datasDetails.genres && datasDetails.genres.map((value, key) => {
-                                return (
-                                    <span key={key}>{value.name}</span>
-                                )
-                            })}
+                            <ContentGenres>
+                                {datasDetails.genres && datasDetails.genres.map((value, key) => {
+                                    return (
+                                        <span key={key}>{value.name}</span>
+                                    )
+                                })}
+                            </ContentGenres>
                         </div>
                     </DescriptionDetails>
                 </ContentDatas>
                 <ContentDetailsMovie>
                     <div>
                         <UsersThree size={40} />
-                        Popularity: {dollarConversion.format(datasDetails.popularity)}
+                        Popularidade: {dollarConversion.format(datasDetails.popularity)}
                     </div>
                     <div>
                         <FilmSlate size={32} />
-                        Type: {datasDetails.type}
+                        Tipo: {datasDetails.type}
                     </div>
                     <div>
                         <TelevisionSimple size={32} />
-                        Number Of Seasons: {datasDetails.number_of_seasons}
+                        Temporadas: {datasDetails.number_of_seasons}
                     </div>
                 </ContentDetailsMovie>
 
                 <ContainerImagesAndCasts>
                     <ContentSliderBackDrops>
-                        <h1>Gallery</h1>
+                        <h1>Galeria</h1>
 
                         <div>
                             <Swiper
@@ -155,7 +157,7 @@ export default function DetailsTvRoute() {
                         </div>
                     </ContentSliderBackDrops>
 
-                    <h1>Casts</h1>
+                    <h1>Elenco</h1>
                     <ContentActors>
                         {creditsDetails.cast && creditsDetails.cast.map((value, key) => {
                             return (
@@ -173,7 +175,7 @@ export default function DetailsTvRoute() {
                     </ContentActors>
 
                     <ContentMoviesSimilars style={{ color: "#f1f1ff" }}>
-                        <h1>Similars</h1>
+                        <h1>Similares</h1>
                         <div>
                             <Swiper
                                 style={{
@@ -197,7 +199,7 @@ export default function DetailsTvRoute() {
                                         <SwiperSlide key={key}>
                                             <Link onClick={moveScroll} to={`/details_tv/${value.id}`}>
                                                 <img src={`https://image.tmdb.org/t/p/w200/${value.poster_path}`} alt="" />
-                                                <h3>{value.original_name}</h3>
+                                                <h3>{value.name}</h3>
                                             </Link>
                                         </SwiperSlide>
                                     )

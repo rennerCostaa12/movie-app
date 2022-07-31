@@ -23,7 +23,7 @@ export default function Tv({ datas }) {
                     </div>
                 </div>
 
-                <h3>{datas.original_name}</h3>
+                <h3>{datas.name}</h3>
             </Link>
         </CardMovie>
     )
