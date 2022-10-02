@@ -28,19 +28,18 @@ export function getTrendings(mediaType, Time) {
 
 export function getDatasApi(typeRequisition, page) {
     const [datas, setDatas] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         axios.get(`${base_url}${typeRequisition}/top_rated?api_key=${key}&language=pt-BR&page=${page}`)
             .then(function (response) {
+                setLoading(true)
                 setDatas(response.data);
+                setLoading(false)
             })
             .catch(function (error) {
                 console.log(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            })
+            });
 
     }, [page])
 

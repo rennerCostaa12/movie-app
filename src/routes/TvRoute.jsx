@@ -13,15 +13,19 @@ export default function TvRoute() {
         <ContainerTrending>
             <Search pathRequisition="search_tv" />
             <h1>Tv</h1>
-            {loading ? "Carregando" : ''}
-            <ContentTrending>
-                {datas.results && datas.results.map((value) => {
-                    return (
-                        <Tv key={value.id} datas={value} />
-                    )
-                })}
-            </ContentTrending>
-            <PaginationItems setPages={setPage} totalPages={datas.total_pages} />
+            {loading ? "Carregando" :
+                <>
+                    <ContentTrending>
+                        {datas.results && datas.results.map((value) => {
+                            return (
+                                <Tv key={value.id} datas={value} />
+                            )
+                        })}
+                    </ContentTrending>
+                    <PaginationItems setPages={setPage} totalPages={datas.total_pages} />
+                </>
+            }
+
         </ContainerTrending >
     )
 }

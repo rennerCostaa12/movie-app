@@ -20,7 +20,7 @@ export default function Movies({ datas }) {
                         movie
                     </div>
                     <div>
-                        {datas.release_date.substring(0, 4)}
+                        {datas.release_date ? datas.release_date.substring(0, 4) : '-'}
                     </div>
                 </div>
 
