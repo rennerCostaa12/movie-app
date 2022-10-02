@@ -15,6 +15,8 @@ export default function ButtonFavorites({ datas, titleButton, sizeIcon, colorIco
         setFavorites(favorites.filter((data) => data.id !== datas.id));
     }
 
+    localStorage.setItem("favorites_movies", JSON.stringify(favorites))
+
     const isFavorite = favorites.some((data) => data.id == datas.id)
 
     return (

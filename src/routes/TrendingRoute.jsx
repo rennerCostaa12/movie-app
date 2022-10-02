@@ -13,7 +13,6 @@ export default function TrendingRoute() {
 
     return (
         <ContainerTrending>
-
             {loading ?
                 <div style={{ textAlign: "center" }}>
                     <CircularProgress color="secondary" />

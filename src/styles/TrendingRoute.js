@@ -38,6 +38,9 @@ export const ContentSliderMovies = styled.div`
     height: 450px;
     margin: 1rem;
 
+    animation-duration: 2s;
+    animation-name: fade;
+
     img{
         border-radius: 15px;
         width: 100%;
@@ -51,6 +54,16 @@ export const ContentSliderMovies = styled.div`
 
         img{
             height: 300px;
+        }
+    }
+
+    @keyframes fade {
+        from{
+            opacity: 0;
+        }
+
+        to{
+            opacity: 1;
         }
     }
 `
@@ -93,6 +106,8 @@ export const CardMovie = styled.div`
     cursor: pointer;
     transform: scale(0.95);
     transition: all ease 0.3s;
+    animation-duration: 2s;
+    animation-name: fade;
     
     &:hover{
         transform: scale(1);
@@ -130,5 +145,15 @@ export const CardMovie = styled.div`
         cursor: pointer;
         background: none;
         border: none;
+    }
+
+    @keyframes fade {
+        from{
+            opacity: 0;
+        }
+
+        to{
+            opacity: 1;
+        }
     }
 `
