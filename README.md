@@ -1,6 +1,8 @@
 # movie-app
 Catálogo de filmes e séries
 
+<h1>Link da aplicação: https://movie-app-renner-costa.netlify.app/</h1>
+
 # Tecnologias
 <ul>
 <li>
