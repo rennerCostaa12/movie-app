@@ -7,24 +7,24 @@ export default function Navigation() {
         <Container>
             <ContentNav>
                 <li>
-                    <Link to="/">
+                    <Link to="/" title="Em Altas">
                         <Fire size={32} />
                     </Link>
                 </li>
 
                 <li>
-                    <Link to="movies">
+                    <Link to="movies" title="Filmes">
                         <FilmStrip size={32} />
                     </Link>
                 </li>
                 <li>
-                    <Link to="tv">
+                    <Link to="tv" title="Séries/TV">
                         <Television size={32} />
                     </Link>
                 </li>
 
                 <li>
-                    <Link to="favorites">
+                    <Link to="favorites" title="Favoritos">
                         <Bookmark size={32} />
                     </Link>
                 </li>

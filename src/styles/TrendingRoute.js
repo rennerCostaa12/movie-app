@@ -121,7 +121,6 @@ export const CardMovie = styled.div`
     img{
         border-radius: 15px;
         width: 100%;
-        height: 250px;
     }
 
     div{
